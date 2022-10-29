@@ -33,6 +33,12 @@ Fixed	&Fixed::operator=(const Fixed &fixed)
 	return (*this);
 }
 
+std::ostream	&operator<<(std::ostream &out, const Fixed &fixed)
+{
+	out << fixed.toFloat();
+	return (out);
+}
+
 int	Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBIts member function called" << std::endl;
@@ -53,10 +59,4 @@ int		Fixed::toInt( void ) const
 float	Fixed::toFloat( void ) const
 {
 	return((float)this->_n / (1 << this->_c));
-}
-
-std::ostream	&operator<<(std::ostream &out, const Fixed &fixed)
-{
-	out << fixed.toFloat();
-	return (out);
 }
